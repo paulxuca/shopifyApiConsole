@@ -1,0 +1,99 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.appSidebar {
+  flex: 1;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+}
+
+.appSidebarContainer {
+  margin: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.apiHeader {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
+  flex: 1;
+}
+
+.apiDescription {
+  color: #767676;
+  flex: 1;
+}
+
+.apiEndpointsList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: #767676;
+  flex: 20;
+}
+
+.apiEndpointsList li:hover {
+  color: #000;
+  transition: 0.3s;
+}
+
+.storeSelect {
+  flex: 1;
+}
+
+.storeSelect{
+  text-transform: capitalize;
+}
+
+.listItemSelected {
+  font-weight: 500;
+  color: #000;
+}
+
+.inputStoreCreation {
+  flex: 1;
+  display: flex;
+}
+
+.buttonblue {
+  background-color: #0078bd;
+  margin: 8px;
+  color: white;
+  border-radius: 3px;
+  padding: 0;
+}
+
+.fullScreenLoader {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullScreenLoader svg {
+  fill: white;
+}
+
+.apiDocsHeader {
+  margin: 0;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.appContent {
+  flex: 3;
+  display: flex;
+}
+
+.appContentContainer {
+  margin: 15px;
+  flex: 1;
+}

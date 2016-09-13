@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.4.1"
+  },
+  "dependencies": {
+    "axios": "^0.14.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-loading": "0.0.9",
+    "restify": "^4.1.1"
+  },
+  "scripts": {
+    "frontend": "react-scripts start",
+    "server": "node server.js",
+    "start": "npm run frontend | npm run server",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js"
+  }
+}
