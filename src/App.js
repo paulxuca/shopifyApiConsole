@@ -23,7 +23,7 @@ class App extends Component {
   componentWillMount() {
     if (window.location.search) {
       this.setState({ isLoading: true });
-      const { code, shop } = getDetailsFromUrl(window.location.search);
+      const { code, shop } = getDetailsFromUrl();
       getApiRequest(code, shop).then((data) => {
         this.pushShopsFromLocalStorage();
       })

@@ -12,7 +12,7 @@ export const shopifyAuthUrl = (shopName) => {
 }
 
 
-export const getDetailsFromUrl = url => {
+export const getDetailsFromUrl = () => {
   const queries = window.location.search.split(/\?|&/).splice(1).filter((each) => each.match(/code|shop/));
   return {
     code: queries[0].split('code=')[1],
