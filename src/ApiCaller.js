@@ -42,8 +42,9 @@ class ApiCaller extends React.Component {
 	render() {
 	if(this.props.fields) {
 		return(
-	      <div className="apiCallerContainer" style={{ marginTop: 20 }}>
-	      <div className="eachEndpoint">
+	      <div className="apiCallerContainer">
+				<h2 className="apiDocsHeader" style={{ color: 'white' }}>Test Console</h2>
+	      <div className="eachEndpoint" style={{ marginTop: 20 }}>
 			<div className="endpointLink">
 				<div className="endpointMethod" style={{ backgroundColor: '#f9fafa', color: '#000' }}>
 					<span>{this.props.fields.method}</span>

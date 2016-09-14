@@ -146,7 +146,6 @@ class App extends Component {
 
         <div className="appApiCaller">
           <div className="appApiCallerContainer">
-            <h2 className="apiDocsHeader" style={{ color: 'white' }}>Test Console</h2>
             <ApiCaller
               fields={this.state.fieldsData}
               storeName={this.state.currentStore}

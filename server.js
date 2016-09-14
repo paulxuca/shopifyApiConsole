@@ -32,13 +32,20 @@ server.get('/auth', function (req, res, next) {
 });
 
 server.get('/request', function(req, res, next){
-  axios(req.params.axiosData)
+  axios(JSON.parse(req.params.axiosData))
   .then(function(data){
-    res.send(data)
+    res.send({
+      status: data.status,
+      header: data.headers,
+      result: data.data
+    });
   })
   .catch(function(error){
     console.log(error);
-    res.send(error);
+    res.send({
+      config: error.config,
+      result: error.response
+    });
   });
   return next();
 });
