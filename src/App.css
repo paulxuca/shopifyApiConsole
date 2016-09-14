@@ -97,6 +97,7 @@
 
 .appContent {
   flex: 3;
+  overflow: scroll;
   display: flex;
 }
 
@@ -109,6 +110,7 @@
   flex: 2;
   background-color: #243131;
   display: flex;
+  overflow: scroll;
 }
 
 .methodsListHeader {
@@ -126,10 +128,15 @@
   font-size: 14px;
 }
 
+.methodsListItems li{
+  margin-bottom: 10px;
+}
+
 .eachEndpoint {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin: 20px 0px;
 }
 
 .endpointLink {
@@ -189,6 +196,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  overflow: scroll;
 }
 
 .apiCallerContainer {
@@ -219,6 +227,7 @@
 }
 
 .form-group {
+  margin-top: 10px;
   font-size: 14px;
 }
 
@@ -231,4 +240,90 @@
   border-radius: 20px;
   background-color: rgb(249, 250, 250);
   color: #000;
+}
+
+.networkBackground {
+  background-color: #333f3f;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ccc;
+  font-family: Menlo;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 300;
+  overflow: scroll;
+}
+
+.networkBackground p {
+  margin: 0;
+}
+
+/* Tomorrow Night Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #969896;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #cc6666;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #de935f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+  color: #f0c674;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #b5bd68;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+  color: #81a2be;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #b294bb;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

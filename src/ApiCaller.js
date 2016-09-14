@@ -1,4 +1,5 @@
 import React from 'react';
+import RequestComponent from './components/RequestComponent';
 import { performApiRequest } from './constants/helpers';
 
 const inputField = (type, placeholder, field) => {
@@ -16,7 +17,20 @@ class ApiCaller extends React.Component {
 		super();
 		this.state = {
 			isFetching: false,
+			responseData: {
+				isError: false,
+				data: false
+			},
+			lastRequestData: false
 		};
+	}
+
+	componentWillReceiveProps(newProps) {
+		if (newProps.fields.endpoint !== this.props.fields.endpoint) {
+			this.setState({
+				lastRequestData: false
+			});
+		}
 	}
 
 	onApiCall = (e) => {
@@ -26,16 +40,37 @@ class ApiCaller extends React.Component {
 		const formData = {};
 		for(let iter = 0; iter < form.elements.length; iter++) {
 			const currentTag = form.elements[iter];
-			if (currentTag.tagName === 'INPUT') {
+			if (currentTag.tagName === 'INPUT' && currentTag.value) {
 				formData[currentTag.id] = currentTag.value;
 			}
 		}
+		this.setState({
+			lastRequestData: {
+				store: this.props.storeName,
+				reqData: formData,
+				endpoint: this.props.fields.endpoint,
+				method: this.props.fields.method
+			}
+		});
 		performApiRequest(this.props.storeName, this.props.storeToken, this.props.fields.endpoint, this.props.fields.method, formData)
 		.then((data) => {
-			console.log(data);
+			this.setState({
+				isFetching: false,
+				responseData: {
+					isError: false,
+					data
+				}
+			});
+			
 		})
 		.catch((error) => {
-			console.log(error);
+			this.setState({
+				isFetching: false,
+				responseData: {
+					isError: true,
+					data: error
+				}
+			});
 		})
 	}
 
@@ -76,8 +111,12 @@ class ApiCaller extends React.Component {
 	        	{this.props.fields.fields.map((each) => {
 	        		return inputField(each.type, each.placeholder, each.name);
 	        	})}
-	        <button type="submit" className="buttonblue modified" disabled={this.state.isFetching}>Try it out</button>
+	        <button type="submit" className="buttonblue modified" disabled={this.state.isFetching || !this.props.storeName}>Try it out</button>
 	        </form>
+	        <RequestComponent
+	        	data={this.state.responseData}
+	        	lastRequestData={this.state.lastRequestData}
+	        />
 	      </div>
 	);
 	}
