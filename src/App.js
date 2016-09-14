@@ -3,7 +3,7 @@ import { endpoints } from './constants/endpoints';
 import { shopifyAuthUrl, getDetailsFromUrl, getApiRequest } from './constants/helpers';
 import EndpointListItem from './components/EndpointListItem';
 import MethodsList from './components/MethodsList';
-import Loading from 'react-loading';
+import Loader from './components/Loader';
 import './App.css';
 
 import ApiCaller from './ApiCaller';
@@ -89,9 +89,7 @@ class App extends Component {
 
   renderLoader() {
     return(
-      <div className="fullScreenLoader">
-        <Loading type="bubbles" width="100px" />
-      </div>
+      <Loader />
     );
   }
 
@@ -102,7 +100,7 @@ class App extends Component {
         <div className="appSidebar">
           <div className="appSidebarContainer">
             <h6 className="apiHeader">Api Reference</h6>
-            <p className="apiDescription">Explore Shopify's 35+ API endpoints through this interactive portal.</p>
+            <p className="apiDescription">Explore Shopify's {endpoints.length} (currently implemented) API endpoints through this interactive portal.</p>
             <ul className="apiEndpointsList">
               {endpoints.map((each, index) =>
                 <EndpointListItem
@@ -143,16 +141,11 @@ class App extends Component {
             />
           </div>
         </div>
-
-        <div className="appApiCaller">
-          <div className="appApiCallerContainer">
-            <ApiCaller
-              fields={this.state.fieldsData}
-              storeName={this.state.currentStore}
-              storeToken={this.state.currentStoreToken}
-            />
-          </div>
-        </div>
+          <ApiCaller
+            fields={this.state.fieldsData}
+            storeName={this.state.currentStore}
+            storeToken={this.state.currentStoreToken}
+          />
       </div>
     );
   }

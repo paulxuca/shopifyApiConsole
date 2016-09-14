@@ -107,10 +107,11 @@
 }
 
 .appApiCaller {
-  flex: 2;
+  flex: 0;
   background-color: #243131;
   display: flex;
   overflow: scroll;
+  flex: 2;
 }
 
 .methodsListHeader {
@@ -258,6 +259,11 @@
 
 .networkBackground p {
   margin: 0;
+}
+
+.loaderAnimation {
+  position: relative;
+  flex: 1;
 }
 
 /* Tomorrow Night Theme */

@@ -1,5 +1,6 @@
 import React from 'react';
 import RequestComponent from './components/RequestComponent';
+import Loader from './components/Loader';
 import { performApiRequest } from './constants/helpers';
 
 const inputField = (type, placeholder, field) => {
@@ -77,8 +78,10 @@ class ApiCaller extends React.Component {
 	render() {
 	if(this.props.fields) {
 		return(
+		<div className="appApiCaller">
+          <div className="appApiCallerContainer">
 	      <div className="apiCallerContainer">
-				<h2 className="apiDocsHeader" style={{ color: 'white' }}>Test Console</h2>
+			<h2 className="apiDocsHeader" style={{ color: 'white' }}>Test Console</h2>
 	      <div className="eachEndpoint" style={{ marginTop: 20 }}>
 			<div className="endpointLink">
 				<div className="endpointMethod" style={{ backgroundColor: '#f9fafa', color: '#000' }}>
@@ -117,6 +120,8 @@ class ApiCaller extends React.Component {
 	        	data={this.state.responseData}
 	        	lastRequestData={this.state.lastRequestData}
 	        />
+	      </div>
+	      </div>
 	      </div>
 	);
 	}
