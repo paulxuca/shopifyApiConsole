@@ -4,6 +4,7 @@ import {
   scopes,
   appURL,
   authURL,
+  reqURL,
   shared_secret
 } from './constants';
 
@@ -38,5 +39,34 @@ export const getApiRequest = (code, shop) => {
     })
     .catch((error) => reject(error));
   });
-  
+}
+
+export const performApiRequest = (store, accessToken, endpoint, method, formData) => {
+  return new Promise((resolve, reject) => {
+    const axiosParms = {};
+    axiosParms['method'] = method;
+    axiosParms['url'] = `https://${store}.myshopify.com${endpoint}`;
+    if (method === 'GET') {
+      axiosParms['params'] = formData;
+    } else {
+      axiosParms['data'] = formData;
+    }
+    axiosParms['headers'] = {
+      'X-Shopify-Access-Token': accessToken
+    };
+    console.log(axiosParms);
+    axios({
+      method: 'GET',
+      url: reqURL,
+      params: {
+        axiosData: axiosParms
+      }
+    })
+    .then((data) => {
+      resolve(data);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+  });
 }

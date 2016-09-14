@@ -35,6 +35,8 @@
   list-style: none;
   color: #767676;
   flex: 20;
+  padding: 20px;
+  border-left: 3px solid #EEE;
 }
 
 .apiEndpointsList li:hover {
@@ -48,6 +50,7 @@
 
 .storeSelect{
   text-transform: capitalize;
+  margin-top: 20px;
 }
 
 .listItemSelected {
@@ -58,6 +61,8 @@
 .inputStoreCreation {
   flex: 1;
   display: flex;
+  min-height: 80px;
+  align-items: center;
 }
 
 .buttonblue {
@@ -66,6 +71,8 @@
   color: white;
   border-radius: 3px;
   padding: 0;
+  padding: 3px;
+  height: 50px;
 }
 
 .fullScreenLoader {
@@ -96,4 +103,132 @@
 .appContentContainer {
   margin: 15px;
   flex: 1;
+}
+
+.appApiCaller {
+  flex: 2;
+  background-color: #243131;
+  display: flex;
+}
+
+.methodsListHeader {
+  font-weight: 400;
+}
+
+.methodsListItem:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.methodsListItem, .methodsListItemDescription {
+  display: block;
+  color: #206882;
+  font-size: 14px;
+}
+
+.eachEndpoint {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.endpointLink {
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+  font-weight: 300;
+  
+}
+
+.endpointMethod {
+  flex: 1;
+  padding: 15px;
+  background-color: #2a2c2e;
+  color: white;
+  text-transform: uppercase;
+  font-family: Menlo;
+}
+
+.endpointURL {
+  flex: 5;
+  padding: 15px;
+  background-color: #30373b;
+  color: white;
+}
+
+.endpointDescription {
+  padding: 15px;
+  background-color: #f9fafa;
+  border: 1px solid #EEE;
+  border-bottom: none;
+}
+
+.endpointFieldItem {
+  display: flex;
+}
+
+.endpointFieldName {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #EEE;
+  border-right: none;
+  font-family: Menlo;
+}
+
+.endpointFieldDescription {
+  flex: 5;
+  padding: 15px;
+  border: 1px solid #EEE;
+}
+
+.appApiCallerContainer {
+  margin: 15px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.apiCallerContainer {
+  flex: 1;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.apiCallerForm {
+  color: white;
+  margin-top: 20px;
+}
+
+.apiCallerLabel {
+  padding: 15px 15px 15px 0px;
+}
+
+.apiCallerInput {
+  padding: 10px 10px 10px 0px;
+  border-bottom: 1px solid #EEE;
+  width: 100%;
+}
+
+.apiCallerInput:focus {
+  outline: 0;
+}
+
+.form-group {
+  font-size: 14px;
+}
+
+.modified {
+  margin-left: 0px;
+  margin-top: 20px;
+  width: 100px;
+  height: inherit;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: rgb(249, 250, 250);
+  color: #000;
 }

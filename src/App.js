@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { endpoints } from './constants/endpoints';
 import { shopifyAuthUrl, getDetailsFromUrl, getApiRequest } from './constants/helpers';
 import EndpointListItem from './components/EndpointListItem';
+import MethodsList from './components/MethodsList';
 import Loading from 'react-loading';
 import './App.css';
 
@@ -15,7 +16,10 @@ class App extends Component {
       enteredStoreName: '',
       isLoading: false,
       currentStore: false,
+      currentStoreToken: false,
       creatingStore: false,
+      endpointData: false,
+      fieldsData: false,
       storeList: [],
     }
   }
@@ -57,7 +61,12 @@ class App extends Component {
   }
 
   onListItemClick = (endPoint) => {
-    if (endPoint !== this.state.currentEndpoint) this.setState({ currentEndpoint: endPoint });
+    if (endPoint !== this.state.currentEndpoint){
+      this.setState({
+        currentEndpoint: endPoint,
+        endpointData: endpoints.find((each) => each.name === endPoint)
+      });
+    }
   }
 
   onChangeListItem = (newData) => {
@@ -67,8 +76,15 @@ class App extends Component {
     } else {
       this.setState({
         currentStore: value,
+        currentStoreToken: localStorage.getItem(value),
       });
     }
+  }
+
+  onClickEndpoint = (newCurrentEndpoint) => {
+    this.setState({
+      fieldsData: newCurrentEndpoint,
+    });
   }
 
   renderLoader() {
@@ -119,7 +135,23 @@ class App extends Component {
         <div className="appContent">
           <div className="appContentContainer">
             <h2 className="apiDocsHeader">{this.state.currentEndpoint}</h2>
-            <ApiCaller />
+            <div dangerouslySetInnerHTML={{__html: this.state.endpointData.description}} />
+            <MethodsList
+              data={this.state.endpointData.actions}
+              dataType={this.state.currentEndpoint}
+              onClickEndpoint={this.onClickEndpoint}
+            />
+          </div>
+        </div>
+
+        <div className="appApiCaller">
+          <div className="appApiCallerContainer">
+            <h2 className="apiDocsHeader" style={{ color: 'white' }}>Test Console</h2>
+            <ApiCaller
+              fields={this.state.fieldsData}
+              storeName={this.state.currentStore}
+              storeToken={this.state.currentStoreToken}
+            />
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 export const appURL = 'http://localhost:3000';
 export const authURL = 'http://localhost:3001/auth';
+export const reqURL = 'http://localhost:3001/request';
 export const scopes = [
   'read_content',
   'read_customers',

@@ -31,6 +31,18 @@ server.get('/auth', function (req, res, next) {
   return next();
 });
 
+server.get('/request', function(req, res, next){
+  axios(req.params.axiosData)
+  .then(function(data){
+    res.send(data)
+  })
+  .catch(function(error){
+    console.log(error);
+    res.send(error);
+  });
+  return next();
+});
+
 server.listen(3001, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
